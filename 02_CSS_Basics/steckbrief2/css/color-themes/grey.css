@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(33, 33, 33);
+}
+
+#content-box {
+    background-color: rgb(49, 49, 49);
+    color: white;
+}
+
+button {
+    background-color: rgb(62, 62, 62);
+    border-color: rgb(28, 28, 28);
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+img {
+    border-color: darkslategray;
+}

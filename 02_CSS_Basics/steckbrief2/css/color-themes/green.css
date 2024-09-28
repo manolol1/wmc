@@ -1,0 +1,16 @@
+body {
+    background-color: darkolivegreen;
+}
+
+#content-box {
+    background-color: rgb(103, 178, 94);
+}
+
+button {
+    background-color: mediumseagreen;
+    border-color: seagreen;
+}
+
+img {
+    border-color: darkolivegreen;
+}

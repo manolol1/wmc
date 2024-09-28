@@ -3,37 +3,18 @@
 
 <head>
     <title>Steckbrief</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: darkolivegreen;
-        }
+    <link rel="Stylesheet" type="Text/css" href="./css/style.css">
+    <link id="color-theme" rel="Stylesheet" type="Text/css" href="./css/color-themes/green.css">
 
-        #content-box {
-            background-color: rgb(103, 178, 94);
-            width: 60%;
-            min-width: 350px; /* make sure that the box doesn't get too small on small screens (e.g. mobile phones) */
-            margin: auto; /* center div */
-            text-align: center; /* center text */
-            border-radius: 16px;
-            
-            padding: 40px 0; /* add more space on top and bottom */
-            margin-top: 40px;
-        }
-
-        /* default style for paragraphs */
-        p {
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-    </style>
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/6994670803.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="content-box">
-        <h1 style="margin-top: 0px">Steckbrief</h1>
+        <h1 style="margin-top: 0px"><i class="fa-solid fa-scroll"></i> Steckbrief</h1>
 
-        <img src="images/foto.png" style="width: 150px; border-radius: 20px; border-width: 4px; border-color: darkolivegreen; border-style: solid; margin-bottom: 15px;">
+        <img src="images/foto.png" style="width: 150px;">
 
         <p><b>Name:</b> Mario Ebenhofer</p>
 
@@ -65,9 +46,24 @@
             <li>3D-Druck (FDM)</li>
             <li>Radfahren (manchmal)</li>
         </ul>
+
+        <button onclick="changeTheme()"><i class="fa-solid fa-paintbrush"></i> Change Color Theme</button>
     </div>
 
     <script>
+        let theme = document.getElementById("color-theme");
+        let themes = ["green", "grey", "white"];
+        let activeTheme = 0;
+        function changeTheme() {
+            activeTheme++;
+
+            if (activeTheme >= themes.length) {
+                activeTheme = 0;
+            }
+
+            theme.setAttribute("href", `./css/color-themes/${themes[activeTheme]}.css`);
+        }
+
         document.getElementById("age").append(getAge(2008, 10, 9));
 
         /** Calculate age based on birthdate */

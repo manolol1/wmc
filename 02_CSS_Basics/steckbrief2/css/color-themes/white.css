@@ -1,0 +1,16 @@
+body {
+    background-color: gainsboro;
+}
+
+#content-box {
+    background-color: white;
+}
+
+button {
+    background-color: aliceblue;
+    border-color: azure;
+}
+
+img {
+    border-color: beige;
+}

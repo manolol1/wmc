@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#content-box {
+    width: 60%;
+    min-width: 350px; /* make sure that the box doesn't get too small on small screens (e.g. mobile phones) */
+    margin: auto; /* center div */
+    text-align: center; /* center text */
+    border-radius: 16px;
+    
+    padding: 40px 0; /* add more space on top and bottom */
+    margin-top: 40px;
+}
+
+/* default style for paragraphs */
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+button {
+    border-radius: 6px;
+    font-size: medium;
+    padding: 8px;
+}
+
+img {
+    border-radius: 20px;
+    border-width: 4px;
+    border-style: solid;
+    margin-bottom: 15px;
+}
