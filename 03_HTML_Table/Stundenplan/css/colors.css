@@ -1,0 +1,85 @@
+.time1 {
+    background-color: rgb(255, 246, 161);
+}
+
+.time2 {
+    background-color: rgb(255, 242, 127);
+}
+
+.headline {
+    background-color: rgb(255, 234, 143);
+}
+
+.bottomline {
+    background-color: rgb(140, 91, 0);
+    color: white;
+}
+
+.days {
+    background-color: rgb(252, 240, 184);
+}
+
+
+.subject-ggp {
+    background-color: rgb(215, 0, 158);
+}
+
+.subject-am {
+    background-color: rgb(252, 98, 255);
+}
+
+.subject-dbi {
+    background-color: rgb(116, 223, 116);
+}
+
+.subject-sopk {
+    background-color: rgb(29, 116, 255);
+}
+
+.subject-d {
+    background-color: rgb(255, 44, 241);
+}
+
+.subject-nscs {
+    background-color: rgb(90, 44, 255);
+}
+
+.subject-wmc {
+    background-color: rgb(109, 90, 255);
+}
+
+.subject-cabs {
+    background-color: rgb(76, 204, 255);
+}
+
+.subject-pose {
+    background-color: rgb(255, 26, 26);
+}
+
+.subject-bsp {
+    background-color: rgb(0, 168, 6);
+}
+
+.subject-rw {
+    background-color: rgb(228, 122, 230);
+}
+
+.subject-bo {
+    background-color: rgb(255, 245, 103);
+}
+
+.subject-nawi {
+    background-color: rgb(255, 44, 241);
+}
+
+.subject-eth {
+    background-color: rgb(1, 153, 183);
+}
+
+.subject-e {
+    background-color: rgb(191, 0, 255);
+}
+
+.subject-none {
+    background-color: rgb(219, 219, 219);
+}
