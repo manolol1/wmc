@@ -1,11 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linux</title>
+    <link rel="stylesheet" type="text/css" href="./style/main.css">
+    <link rel="icon" type="image/png" sizes="256x256" href="./media/favicon.png">
 </head>
+
 <body>
-    
+    <div class="backgroundBox">
+        <div class="mainContent">
+            <h1>Linux</h1>
+
+            <div id="tableOfContent">
+                <h2>Content</h2>
+                <ul>
+                    <li><a href="#what-is-linux">What is Linux?</a></li>
+                    <li><a href="#use-cases">What is Linux used for?</a></li>
+                </ul>
+            </div>
+
+            <h2 id="what-is-linux">What is Linux?</h2>
+            <p>
+                Linux is a free and open-source operating system* (OS) that powers everything from personal computers to
+                smartphones, servers, and even supercomputers. Originally created by <a
+                    href="https://en.wikipedia.org/wiki/Linus_Torvalds" target="_blank">Linus Torvalds</a> in 1991,
+                Linux has
+                evolved into a powerful and versatile platform used by millions of people worldwide.<br><br>
+
+                Unlike proprietary operating systems like Windows or macOS, Linux is <a
+                    href="https://opensource.org/osd" target="_blank">open-source</a>, meaning anyone can
+                view, modify, and distribute its code. This collaborative nature has led to a rich ecosystem of Linux
+                distributions, each tailored for different types of users.<br><br><br>
+
+                *Linux is technically not an operating system (OS) on its own—rather, it is the <a
+                    href="https://en.wikipedia.org/wiki/Kernel_(operating_system)" target="_blank">Kernel</a> of an OS.
+                The kernel is the core part of an operating system, responsible for managing hardware resources and
+                allowing
+                software to interact with the computer's hardware. It handles crucial functions such as memory
+                management, task scheduling, and input/output operations.<br><br>
+
+                <img src="media/linuxkernel.jpg"
+                    alt="Diagram that shows Kernel Space and User Space and it's components"> <br><br>
+
+                When we refer to “Linux” as an operating system, we're usually talking about a Linux distribution. A
+                Linux distribution bundles the Linux kernel together with other essential software (like the <a
+                    href="https://www.gnu.org/software/coreutils/" target="_blank">GNU Core Utilities</a>, package
+                managers, graphical user interfaces and more) to form a complete operating system.
+                These distributions are what users typically interact with when using “Linux.”<br><br>
+                On this website, the term "Linux" is used for Linux distributions, while the term "Linux kernel" is
+                used when we are talking about the kernel specifically.
+            </p>
+
+            <h2 id="use-cases">What is Linux used for?</h2>
+            <p>
+                Linux is an incredibly versatile operating system that powers a wide range of devices and platforms,
+                from tiny embedded systems to <a href="https://itsfoss.com/linux-runs-top-supercomputers/"
+                    target="_blank">powerful supercomputers</a>. Its adaptability and open-source nature have led
+                to widespread adoption across several key sectors: <br><br>
+
+            <ol>
+                <li>
+                    <h4>Servers and Cloud Infrastructure</h4>
+                    One of the most significant use-cases of Linux is in servers. In fact, the vast majority of web
+                    servers that power the internet, run on Linux. Popular server distributions like
+                    Ubuntu Server, CentOS, and Debian are used by companies, governments, and organizations worldwide to
+                    host websites, applications, and services<br><br>
+
+                    Linux's stability, security, and resource efficiency make it the preferred choice for server
+                    environments. Additionally, its compatibility with tools like Apache, Nginx, and Docker has
+                    solidified its position as the backbone of modern cloud infrastructure, with major platforms like
+                    AWS, Google Cloud, and Microsoft Azure offering Linux-based solutions for their customers.<br><br>
+                </li>
+
+                <li>
+                    <h4>Android and Mobile Devices</h4>
+                    You may not realize it, but if you're using an <a href="https://www.android.com/"
+                        target="_blank">Android</a> smartphone, you're actually using Linux!
+                    Android, developed by Google, is built on the Linux kernel, which allows it to manage hardware
+                    resources efficiently on mobile devices. <br><br>
+
+                    While Android's user interface and software stack are quite different from traditional desktop Linux
+                    distributions, its foundation is rooted in the same Linux kernel used in servers and desktop
+                    systems. This has enabled Android to become the most widely used mobile operating system in the
+                    world.<br><br>
+
+                    Beyond smartphones, Linux also powers many other embedded systems—from smart TVs (many of which use
+                    Android) to IoT devices and
+                    even automotive systems in modern cars.<br>
+                    There are also projects like <a href="https://ubuntu-touch.io/" target="_blank">Ubuntu Touch</a> and
+                    <a href="https://postmarketos.org/" target="_blank">PostmarketOS</a>, which aim to create complelety
+                    Linux-based mobile phone operating systems.<br><br>
+
+                </li>
+
+                <li>
+                    <h4>The Growing Desktop Market</h4>
+                    Although Linux has long dominated servers and embedded systems, it's increasingly gaining traction
+                    in the desktop market. While it only occupies a small percentage of total desktop users compared to
+                    Windows and macOS, Linux's desktop presence is growing steadily.<br><br>
+
+                    Linux distributions like <a href="https://linuxmint.com/" target="_blank">Linux Mint</a>, <a
+                        href="https://ubuntu.com/" target="_blank">Ubuntu</a>, and <a href="https://zorin.com/"
+                        target="_blank">ZorinOS</a>offer user-friendly environments that make
+                    it easier for everyday users to switch from proprietary operating systems. With advancements in
+                    software compatibility, including tools like <a href="https://winehq.org/" target="_blank">Wine</a>
+                    and <a href="https://en.wikipedia.org/wiki/Proton_(software)" target="_blank">Proton</a>
+                    (which allow running Windows
+                    applications and games), Linux is becoming a more viable option for developers, gamers, and general
+                    users alike.<br><br>
+
+                    The open-source nature of Linux gives desktop users unparalleled customization options, making it a
+                    great choice for people who value privacy, control, and flexibility. Additionally, the development
+                    of powerful, lightweight desktop environments like <a href="https://gnome.org/"
+                        target="_blank">Gnome</a>, <a href="https://kde.org/" target="_blank">KDE Plasma</a>, and <a
+                        href="https://xfce.org/" target="_blank">Xfce</a> allows Linux to run
+                    efficiently on both new and older hardware.<br><br>
+
+                    <h4>Valve and the Steam Deck: Gaming on Linux</h4>
+                    One of the most exciting developments for Linux in recent years has been its growing presence in the
+                    gaming industry, largely thanks to Valve and their <a
+                        href="https://store.steampowered.com/steamdeck" target="_blank">Steam Deck</a>. Valve, the
+                    company behind the popular
+                    gaming platform Steam, has long been an advocate for Linux, and their efforts have significantly
+                    improved gaming on the platform.<br><br>
+
+                    Valve's major contribution to gaming on Linux is Proton, a compatibility layer that allows many
+                    Windows games to run on Linux. Proton enables Linux users to access a large portion of Steam's vast
+                    game library without needing to run Windows.<br><br>
+
+                    In 2021, Valve released the Steam Deck, a handheld gaming console which is designed to bring PC
+                    gaming on the go, and its default
+                    operating system, SteamOS, is a Linux distribution.<br><br>
+
+                    Valve's investment in Linux through Proton and the Steam Deck has helped change the perception that
+                    Linux is not suitable for gaming. By creating a smooth gaming experience on a Linux-based system,
+                    Valve has pushed Linux gaming forward, inspiring more developers to consider supporting Linux
+                    natively.<br><br>
+
+                    <img src="media/steamdeck.jpg" alt="Picture of a Steam Deck" width="500px;"><br><br>
+                </li>
+            </ol>
+            </p>
+        </div>
+    </div>
 </body>
+
 </html>
