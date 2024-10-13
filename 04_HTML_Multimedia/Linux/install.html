@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux - Installation</title>
+    <link rel="stylesheet" type="text/css" href="./style/main.css">
+    <link rel="icon" type="image/png" sizes="256x256" href="./media/favicon.png">
+</head>
+
+<body>
+
+    <div class="backgroundBox" id="top">
+        <div class="mainContent">
+            <a href="index.html"><button id="topButton">&#128281</button></a>
+
+            <h1>How to Install and Start Using Linux</h1>
+
+            <p>Getting started with Linux is easier than you might think! With hundreds of different <strong>Linux
+                    distributions</strong> available, you can choose one that suits your needs, whether you're a
+                complete beginner or an experienced user. Here’s a simple guide to help you install Linux and get
+                started:</p>
+
+            <h2>1. Choosing the Right Linux Distribution</h2>
+            <p>The first step is picking the right <strong>Linux distribution</strong> (distro) for you. Here are some
+                popular choices:</p>
+            <ul>
+                <li><a href="https://ubuntu.com/download" target="_blank">Ubuntu</a>: Great for beginners, with a large
+                    community and lots of tutorials.</li>
+                <li><a href="https://linuxmint.com/download.php" target="_blank">Linux Mint</a>: Another
+                    beginner-friendly option, often recommended for users switching from Windows.</li>
+                <li><a href="https://getfedora.org/" target="_blank">Fedora</a>: Known for cutting-edge features and
+                    up-to-date software.</li>
+                <li><a href="https://pop.system76.com/" target="_blank">Pop!_OS</a>: Tailored for developers and gamers,
+                    with built-in support for Nvidia graphics.</li>
+                <li><a href="https://www.debian.org/distrib/" target="_blank">Debian</a>: A solid, stable choice, often
+                    used for servers but also great for desktops.</li>
+            </ul>
+            <p>Once you’ve picked a distribution, head to its official website to download the <strong>ISO</strong> file
+                (the installer).</p>
+
+            <h2>2. Creating a Bootable USB Drive</h2>
+            <p>Once you’ve downloaded the ISO file, you’ll need to create a <strong>bootable USB drive</strong> to
+                install Linux. Here’s how to do it:</p>
+            <ol>
+                <li><strong>Download a USB burning tool</strong>:
+                    <ul>
+                        <li>For Windows: Use <a href="https://rufus.ie/en/" target="_blank">Rufus</a>.</li>
+                        <li>For macOS or Linux: Use <a href="https://www.balena.io/etcher/" target="_blank">Etcher</a>.
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Insert your USB drive</strong> into your computer (make sure it has at least 4GB of space).
+                </li>
+                <li><strong>Open the burning tool</strong> and select the Linux ISO file you downloaded. Then, select
+                    the USB drive and click “Start” to create the bootable USB.</li>
+            </ol>
+
+            <h2>3. Boot from the USB and Install Linux</h2>
+            <p>Once the bootable USB drive is ready, follow these steps:</p>
+            <ol>
+                <li><strong>Reboot your computer</strong> and access the BIOS or UEFI settings (usually by pressing
+                    <code>F2</code>, <code>F12</code>, <code>Esc</code>, or <code>Del</code> during startup).
+                </li>
+                <li><strong>Change the boot order</strong> to prioritize booting from the USB drive.</li>
+                <li><strong>Save and exit</strong>, and your computer will boot from the USB drive, launching the Linux
+                    installer.</li>
+                <li><strong>Follow the on-screen instructions</strong>. Most installers will guide you through
+                    partitioning your hard drive, setting up your user account, and configuring the system.</li>
+                <li>After the installation, <strong>reboot the computer</strong>, remove the USB, and you’ll boot into
+                    your new Linux system!</li>
+            </ol>
+
+            <h2>4. Getting Familiar with Linux</h2>
+            <p>Once you’ve installed Linux, here’s what to do next:</p>
+            <ul>
+                <li><strong>Update your system</strong>: Open a terminal and run the update command (this depends on the
+                    distro you’ve installed):
+                    <ul>
+                        <li>For Ubuntu/Debian: <code>sudo apt update && sudo apt upgrade</code></li>
+                        <li>For Fedora: <code>sudo dnf update</code></li>
+                    </ul>
+                </li>
+                <li><strong>Explore the desktop environment</strong>: Get familiar with the layout and functionality.
+                    Linux has several desktop environments like <a href="https://www.gnome.org/"
+                        target="_blank">GNOME</a>, <a href="https://kde.org/plasma-desktop/" target="_blank">KDE
+                        Plasma</a>, and <a href="https://xfce.org/" target="_blank">Xfce</a>, each with a different look
+                    and feel.</li>
+                <li><strong>Install new software</strong>: Most Linux distributions come with software centers where you
+                    can browse and install applications. Alternatively, you can install apps via the terminal using
+                    package managers like <code>apt</code>, <code>dnf</code>, or <code>pacman</code>, depending on your
+                    distro.</li>
+            </ul>
+
+            <h2>5. Learning Basic Linux Commands</h2>
+            <p>The <strong>command line</strong> is a powerful tool in Linux, and learning a few basic commands will
+                make your experience smoother. Here are some to get you started:</p>
+            <ul>
+                <li><code>ls</code>: Lists files in the current directory.</li>
+                <li><code>cd [directory]</code>: Changes the working directory.</li>
+                <li><code>pwd</code>: Displays the current directory.</li>
+                <li><code>sudo</code>: Runs a command as a superuser (admin).</li>
+                <li><code>apt install [package]</code>: Installs a new package on Debian-based systems like Ubuntu.</li>
+            </ul>
+
+            <h2>6. Dual Booting (Optional)</h2>
+            <p>If you’re not ready to fully switch to Linux, you can <strong>dual-boot</strong> alongside Windows or
+                macOS. This allows you to choose between Linux and your original operating system every time you start
+                your computer. The Linux installer typically includes a “dual boot” option during setup, which will
+                handle partitioning your hard drive to allow both OSes to coexist.</p>
+
+            <h2>7. Running Linux in a Virtual Machine (Optional)</h2>
+            <p>If you want to try Linux without affecting your current system, you can install it in a <strong>virtual
+                    machine</strong>. Use software like <a href="https://www.virtualbox.org/"
+                    target="_blank">VirtualBox</a> or <a href="https://www.vmware.com/products/workstation-player.html"
+                    target="_blank">VMware</a> to create a virtual Linux environment on your existing OS. This lets you
+                experiment with Linux while still running your main operating system.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
