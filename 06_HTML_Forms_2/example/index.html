@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontaktformular</title>
+</head>
+
+<body>
+    <h2>Kontaktformular</h2>
+    <form action="send.html" method="get"> <!-- form tag: Umschließt alle Formularelemente (eine Art Container) -->
+
+        <!-- Name Eingabefeld -->
+        <label for="name">Name:</label> <!-- label element: beschreibt ein input element genauer, nützlich für screenreader -->
+                                        <!-- for attribut: id des zusammenhängenden input elements -->
+                                        
+        <input type="text" id="name" name="name" required> <!-- input element: Eingabefeld für unterschiedliche Arten von Daten -->
+                                                           <!-- type attribut: Datenart (z.B. text, tel (für Telefonnummer), number, email, ...) -->
+                                                           <!-- name attribut: Name des Feldes, unter dem die Eingabe gesendet wird. -->
+                                                           <!-- required attribut: Das Feld muss ausgefüllt sein, damit das Formular gesendet werden kann. 
+                                                            Ansonsten, erscheint ein Hinweis vom Browser. -->
+
+        <br><br>
+
+        <!-- Telefonnummer Eingabefeld -->
+        <label for="phone">Telefonnummer:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <br><br>
+
+        <!-- E-Mail Eingabefeld -->
+        <label for="email">E-Mail-Adresse:</label>
+        <input type="email" id="email" name="email" required>
+
+        <br><br>
+
+        <!-- Geschlecht Radiobuttons -->
+        <label>Geschlecht:</label>
+        <input type="radio" id="male" name="gender" value="male">  <!-- name attribut muss bei allen optionen von radio-buttons gleich sein! -->
+        <label for="male">Männlich</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Weiblich</label>
+        <input type="radio" id="diverse" name="gender" value="diverse">
+        <label for="diverse">Divers</label>
+
+        <br><br>
+
+        <!-- Auswahl Dropdown-Menü -->
+        <label for="topic">Thema:</label>
+        <select id="topic" name="topic"> <!-- select element: Dropdown-Menü -->
+            <option value="feedback">Feedback</option> <!-- option elemente: Auswahlmöglichkeiten in einem Dropdown-Menü -->
+            <option value="support">Support</option>   <!-- value attribut: "Wert" der Auswahl, der beim Absenden mitgeschickt wird. -->
+            <option value="other">Sonstiges</option>
+        </select>
+
+        <br><br>
+
+        <!-- Nachricht Textfeld -->
+        <label for="message">Nachricht:</label><br>
+        <textarea id="message" name="message" rows="5" placeholder="Ihre Nachricht..."></textarea>  <!-- textarea element: Eingabefeld für mehrzeiligen Text -->
+                                                                                                    <!-- rows attribut: Höhe des Textfeldes in Zeilen -->
+                                                                                                    <!-- placeholder attribut: Text, der Angezeit wird, bevor der Benutzer
+                                                                                                     etwas eingegeben hat -->
+        <br><br>
+
+        <input type="checkbox" id="consent" required>
+        <label for="consent"> Ich stimme den <a href="" onclick="alert('Ihre Daten werden nicht verarbeitet.')">Datenschutzbestimmungen</a> zu</label>
+        
+        <br><br>
+
+        <!-- Abschicken-Button -->
+        <button type="submit">Abschicken</button>   <!-- button element: klickbarer Knopf -->
+                                                    <!-- type attribut: Art des Buttons (z.B. submit) -->
+                                                    <!-- Beim klicken dieses Buttons wird das Forumular "abgeschickt". 
+                                                     Hierbei wird der Inhalt des Formulars normalerweise an einen Server geschickt.
+                                                     Dafür müsste im form tag ein "action" attribut mit einer Route auf dem Server (z.B. PHP) vorhanden sein.
+                                                     Standardmäßig wird als form-handler die selbe Seite, sowie die HTTP-Methode "GET" genutzt, daher erscheint die Eingabe
+                                                     des Benutzers in der URL (?name1=value1&name2=value2&...) -->
+    </form>
+</body>
+
+</html>
