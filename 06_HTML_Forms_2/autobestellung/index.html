@@ -1,12 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autobestellung Ford</title>
     <link rel="Stylesheet" type="Text/CSS" href="./style/style.css">
+    <link rel="icon" type="image/x-icon" href="./media/favicon.ico">
 </head>
+
 <body>
-    
+    <div class="header">
+        <img src="./media/Ford_logo_flat.svg" alt="Ford Logo" style="width: 150px; margin-right: 20px;">
+        <h1>Auto bestellen</h1>
+    </div>
+
+    <div class="formContainer">
+        <form id="orderForm" action="https://wmc-forms.manolol.xyz/json" method="post">
+            <label for="model">Modell: </label>
+            <!-- Hinweis: Ein Eingabefeld wird durch das "autofocus"-attribut zu Beginn fokusiert. Nachdem das in diesem Fall nicht schön aussieht, habe ich das nicht gemacht. -->
+            <select id="model" name="model" class="formElement" required>
+                <option value="kuga">Kuga</option>
+                <option value="puma">Puma</option>
+                <option value="focus">Focus</option>
+                <option value="tourneo-custom">Tourneo Custom</option>
+                <option value="tourneo-courier">Tourneo Courier</option>
+                <option value="tourneo-connect">Tourneo Connect</option>
+                <option value="galaxy">Galaxy</option>
+                <option value="explorer">Explorer</option>
+                <option value="mustang">Mustang</option>
+                <option value="transit">Transit</option>
+                <option value="capri">Capri</option>
+            </select> <br>
+
+            <div class="formElement radioButtons">
+                <label>Antrieb:</label>
+                <div class="radioButtonContainer">
+                    <input type="radio" id="gasoline" name="engine-type" value="gasoline" checked required>
+                    <label for="gasoline">Benzin</label>
+                </div>
+                <div class="radioButtonContainer">
+                    <input type="radio" id="diesel" name="engine-type" value="diesel" required>
+                    <label for="diesel">Diesel</label>
+                </div>
+                <div class="radioButtonContainer">
+                    <input type="radio" id="electric" name="engine-type" value="electric" required>
+                    <label for="electric">Elektrisch</label>
+                </div>
+                <div class="radioButtonContainer">
+                    <input type="radio" id="hybrid" name="engine-type" value="hybrid" required>
+                    <label for="hybrid">Hybrid</label>
+                </div>
+            </div>
+
+            <div class="formElement">
+                <label for="power">Leisung (PS):</label>
+                <input type="range" id="power" name="power" min="100" max="400" value="250">
+                <span id="powerValue">250</span>
+            </div>
+
+            <div class="formElement">
+                <button type="submit" style="margin-right: 8px;">Fahrzeug anfragen</button>
+                <button type="reset" onclick="resetElements()">Formular zurücksetzen</button>
+            </div>
+        </form>
+
+        <img src="./media/cars/kuga.png" alt="Ford Kuga" class="carImage">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const powerSlider = document.getElementById('power');
+            const powerValue = document.getElementById('powerValue');
+            const form = document.getElementById('orderForm');
+
+            // update powerValue text when slider value changed
+            powerSlider.addEventListener('input', () => {
+                powerValue.textContent = powerSlider.value;
+            });
+
+            // update powerValue text when form is reset
+            form.addEventListener('reset', () => {
+                // Delay the update to allow the form to reset first
+                setTimeout(() => {
+                    powerValue.textContent = powerSlider.value;
+                }, 1);
+            });
+        });
+    </script>
 </body>
+
 </html>

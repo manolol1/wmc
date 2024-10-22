@@ -1,3 +1,132 @@
+:root {
+    /* Color Theme: https://colorffy.com/dark-theme-generator?colors=%09%23003478-121212 */
+
+    /** Dark theme primary colors */
+    --color-primary-a0: #003478;
+    --color-primary-a10: #2e4787;
+    --color-primary-a20: #4b5c95;
+    --color-primary-a30: #6571a4;
+    --color-primary-a40: #7e87b3;
+    --color-primary-a50: #989ec2;
+
+    /** Dark theme surface colors */
+    --color-surface-a0: #121212;
+    --color-surface-a10: #282828;
+    --color-surface-a20: #3f3f3f;
+    --color-surface-a30: #575757;
+    --color-surface-a40: #717171;
+    --color-surface-a50: #8b8b8b;
+
+    /** Dark theme mixed surface colors */
+    --color-surface-mixed-a0: #15161c;
+    --color-surface-mixed-a10: #2a2b31;
+    --color-surface-mixed-a20: #414247;
+    --color-surface-mixed-a30: #595a5f;
+    --color-surface-mixed-a40: #727377;
+    --color-surface-mixed-a50: #8d8d91;
+}
+
 body {
-    background-color: ;
+    background-color: var(--color-surface-a0);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.header {
+    background-color: #003478;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 80px;
+    width: 100vw;
+}
+
+.formContainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 80vw;
+    background-color: var(--color-surface-a10);
+    padding: 20px 50px;
+    border-radius: 10px;
+}
+
+#orderForm {
+    flex: 1 1 30%; /* Allow form to take up more space */
+    min-width: 350px;
+    background-color: var(--color-surface-a10);
+}
+
+.carImage {
+    flex: 1 1 100%;
+    max-width: 60%;
+}
+
+.formElement {
+    margin-top: 15px;
+}
+
+select,
+option {
+    color: white;
+    border: 2px solid var(--color-surface-a0);
+    border-radius: 4px;
+    background-color: var(--color-primary-a10);
+    padding: 4px;
+}
+
+input, button {
+    background-color: var(--color-primary-a10);
+    color: white;
+    border: 2px solid var(--color-surface-a0);
+    border-radius: 4px;
+    padding: 4px;
+}
+
+button:hover {
+    background-color: var(--color-primary-a20);
+    cursor: pointer;
+}
+
+button:active {
+    background-color: var(--color-primary-a30);
+}
+
+label {
+    margin-right: 10px;
+}
+
+/* make sure that radio buttons and their corresponding labels stay together */
+.radioButtonContainer {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* fix label being slightly higher than the radio button 
+   source: https://stackoverflow.com/questions/13509883/how-to-vertically-align-a-html-radio-button-to-its-label
+*/
+input[type="radio"] {
+    margin-top: -1px;
+    vertical-align: middle;
+}
+
+input[type="radio"]:hover, input[type=range]:hover, button:hover, select:hover {
+    cursor: pointer;
+}
+
+input[type="range"] {
+    vertical-align: middle;
+}
+
+.radioButtonContainer label {
+    margin-left: 5px;
+    margin-right: 12px;
 }
