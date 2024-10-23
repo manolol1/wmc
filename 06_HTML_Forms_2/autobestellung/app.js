@@ -11,6 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// serve static files in www directory
+app.use(express.static('www'))
+
 // handle GET requests
 app.get('/json', (req, res) => {
     const queryParams = req.query;
@@ -24,7 +27,7 @@ app.post('/json', (req, res) => {
 });
 
 app.get('/example', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'example-form.html'));
+    res.status(301).redirect('/example-form.html');
 });
 
 app.listen(port, () => {

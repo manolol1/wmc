@@ -26,7 +26,6 @@
                 <option value="tourneo-custom">Tourneo Custom</option>
                 <option value="tourneo-courier">Tourneo Courier</option>
                 <option value="tourneo-connect">Tourneo Connect</option>
-                <option value="galaxy">Galaxy</option>
                 <option value="explorer">Explorer</option>
                 <option value="mustang">Mustang</option>
                 <option value="transit">Transit</option>
@@ -65,28 +64,52 @@
             </div>
         </form>
 
-        <img src="./media/cars/kuga.png" alt="Ford Kuga" class="carImage">
+        <img src="./media/cars/kuga.png" alt="Ford Kuga" id="carImage">
     </div>
 
     <script>
+        //const availabeCars = ['kuga', 'capri', 'explorer', 'focus', 'mustang', 'puma', 'tourneo-connect', 'tourneo-courier', 'tourneo-custom'];
+
+        let carImage, powerSlider, powerValue, form, modelSelector;
+
         document.addEventListener('DOMContentLoaded', (event) => {
-            const powerSlider = document.getElementById('power');
-            const powerValue = document.getElementById('powerValue');
-            const form = document.getElementById('orderForm');
+            powerSlider = document.getElementById('power');
+            powerValue = document.getElementById('powerValue');
+            form = document.getElementById('orderForm');
+            modelSelector = document.getElementById('model');
+            carImage = document.getElementById('carImage');
+
+            // update once to ensure correct values (e.g. after reload)
+            setTimeout(() => {
+                updateCarImage();
+                updatePowerText();
+            }, 1)
 
             // update powerValue text when slider value changed
-            powerSlider.addEventListener('input', () => {
-                powerValue.textContent = powerSlider.value;
-            });
+            powerSlider.addEventListener('input', updatePowerText);
 
-            // update powerValue text when form is reset
+            // update carImage when different model is selected
+            modelSelector.addEventListener('input', updateCarImage);
+
+            // update powerValue text and carImage when form is reset
             form.addEventListener('reset', () => {
                 // Delay the update to allow the form to reset first
                 setTimeout(() => {
-                    powerValue.textContent = powerSlider.value;
+                    updatePowerText();
+                    updateCarImage();
                 }, 1);
             });
         });
+
+        function updatePowerText() {
+            powerValue.textContent = powerSlider.value;
+        }
+
+        function updateCarImage() {
+            let modelName = modelSelector.value;
+            carImage.src = `./media/cars/${modelName}.png`;
+            carImage.alt = `Ford ${modelName.charAt(0).toUpperCase() + modelName.slice(1)}`;
+        }
     </script>
 </body>
 
