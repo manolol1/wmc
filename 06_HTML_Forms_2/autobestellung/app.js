@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // serve static files in www directory
-app.use(express.static('www'))
+app.use('/', express.static(path.join(__dirname, 'www')))
 
 // handle GET requests
 app.get('/json', (req, res) => {
