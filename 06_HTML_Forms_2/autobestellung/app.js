@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // serve static files in www directory
-app.use('/', express.static(path.join(__dirname, 'www')))
+app.use('/', express.static(path.join(__dirname, 'www/static')))
 
 // handle GET requests for basic json output
 app.get('/json', (req, res) => {

@@ -55,15 +55,44 @@
             </div>
 
             <div class="formElement">
-                <label for="power">Leisung (PS):</label>
+                <label for="power">Leistung (PS):</label>
                 <input type="range" id="power" name="power" min="100" max="400" value="250">
                 <span id="powerValue">250</span>
             </div>
 
             <div class="formElement">
+                <label for="color">Farbe:</label>
+                <input type="color" id="color" name="color" value="#2f9941">
+            </div>
+
+            <div class="formElement">
+                <label>Extras: </label>
+                <div class="radioButtonContainer">
+                    <input type="checkbox" id="extra1" name="extras[]" value="seat-heating">
+                    <label for="extra1"> Sitzheizung</label>
+                </div>
+
+                <div class="radioButtonContainer">
+                    <input type="checkbox" id="extra2" name="extras[]" value="steering-wheel-heating">
+                    <label for="extra2"> Lenkradheizung</label>
+                </div>
+
+                <div class="radioButtonContainer">
+                    <input type="checkbox" id="extra3" name="extras[]" value="wifi-hotspot">
+                    <label for="extra3"> WiFi Hotspot</label>
+                </div>
+
+                <div class="radioButtonContainer">
+                    <input type="checkbox" id="extra4" name="extras[]" value="additional-charging-ports">
+                    <label for="extra4"> Zusätzliche USB-Ladeanschlüsse</label>
+                </div>
+            </div>
+
+            <div class="formElement" style="margin-top: 50px;">
                 <button type="submit" style="margin-right: 8px;">Fahrzeug anfragen</button>
                 <button type="reset" onclick="resetElements()">Formular zurücksetzen</button>
             </div>
+
         </form>
 
         <img src="./media/cars/kuga.png" alt="Ford Kuga" id="carImage">
