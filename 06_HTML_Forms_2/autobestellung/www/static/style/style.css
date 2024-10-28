@@ -126,6 +126,10 @@ input[type="range"] {
     vertical-align: middle;
 }
 
+input[type="email"] {
+    background-color: var(--color-surface-mixed-a20);
+}
+
 .radioButtonContainer label {
     margin-left: 5px;
     margin-right: 12px;

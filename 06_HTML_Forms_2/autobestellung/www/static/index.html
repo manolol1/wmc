@@ -37,26 +37,26 @@
             <div class="formElement radioButtons">
                 <label>Antrieb:</label>
                 <div class="radioButtonContainer">
-                    <input type="radio" id="gasoline" name="engine-type" value="gasoline" checked required>
+                    <input type="radio" id="gasoline" name="enginetype" value="gasoline" checked required>
                     <label for="gasoline">Benzin</label>
                 </div>
                 <div class="radioButtonContainer">
-                    <input type="radio" id="diesel" name="engine-type" value="diesel" required>
+                    <input type="radio" id="diesel" name="enginetype" value="diesel" required>
                     <label for="diesel">Diesel</label>
                 </div>
                 <div class="radioButtonContainer">
-                    <input type="radio" id="electric" name="engine-type" value="electric" required>
+                    <input type="radio" id="electric" name="enginetype" value="electric" required>
                     <label for="electric">Elektrisch</label>
                 </div>
                 <div class="radioButtonContainer">
-                    <input type="radio" id="hybrid" name="engine-type" value="hybrid" required>
+                    <input type="radio" id="hybrid" name="enginetype" value="hybrid" required>
                     <label for="hybrid">Hybrid</label>
                 </div>
             </div>
 
             <div class="formElement">
                 <label for="power">Leistung (PS):</label>
-                <input type="range" id="power" name="power" min="100" max="400" value="250">
+                <input type="range" id="power" name="power" min="100" max="400" value="250" required>
                 <span id="powerValue">250</span>
             </div>
 
@@ -90,7 +90,7 @@
 
             <div class="formElement">
                 <label for="delivery-date"> Gewünschtes Lieferdatum: </label>
-                <input type="date" id="delivery-date" name="delivery-date">
+                <input type="date" id="delivery-date" name="deliverydate">
             </div>
 
             <div class="formElement">
@@ -98,6 +98,11 @@
                 <br>
                 <textarea id="comment" name="comment" rows="5" cols="50"
                     placeholder="Sie können hier sonstige Wünsche und Hinweise eingeben."></textarea>
+            </div>
+
+            <div class="formElement">
+                <label for="email">E-Mail-Adresse:</label>
+                <input type="email" id="email" name="email" placeholder="max.mustermann@example.com" required style="width: 250px;">
             </div>
 
             <div class="formElement" style="margin-top: 50px;">

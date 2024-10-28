@@ -2,8 +2,31 @@
 
 const express = require('express')
 const path = require('path');
+const mariadb = require('mariadb');
+const { log } = require('console');
 
 const app = express();
+
+const pool = mariadb.createPool({
+    host: "127.0.0.1",
+    user: "root",
+    password: "TestDB",
+    database: "ford",
+    connectionLimit: 5
+});
+
+// test database connection
+async function testConnection() {
+    console.log("Testing database connection");
+    try {
+        const conn = await pool.getConnection();
+        console.log("Connected to database");
+        conn.release();
+    } catch (err) {
+        console.error("Error connecting to database: ", err);
+    }
+}
+testConnection();
 
 const port = 80;
 
@@ -29,10 +52,39 @@ app.post('/json', (req, res) => {
 });
 
 // handle POST requests for submitting order
-app.post('/submit-order', (req, res) => {
-    // TODO: replace this with actual submitting code
+app.post('/submit-order', async (req, res) => {
     const formData = req.body;
-    res.status(200).json(formData); // Send back the form data as JSON
+
+    try {
+        const conn = await pool.getConnection();
+
+        // query to get the car_id based on the model_name
+        const carResult = await conn.query("SELECT car_id FROM cars WHERE model_name = ?", [formData.model]);
+
+        // make sure that car model exists
+        if (carResult.length === 0) {
+            res.status(400).json({ success: false, error: "Car model not found" });
+            return;
+        }
+
+        const carId = carResult[0].car_id;
+
+        // replace newlines with <br> in comment
+        const comment = formData.comment.replace(/\r?\n|\r/g, '<br>');
+
+        // query to insert order into database
+        const insertResult = await conn.query("INSERT INTO orders (car_id, engine_type, power, color, extras, delivery_date, comment, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            [carId, formData.enginetype, formData.power, formData.color, JSON.stringify(formData.extras), formData.deliverydate, comment, formData.email]);
+
+        // get orderId from insert result
+        const orderId = insertResult.insertId.toString();
+
+        conn.release();
+        res.status(200).json({ success: true, orderId, formData });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, error: err });
+    }
 });
 
 app.get('/example', (req, res) => {
@@ -41,4 +93,4 @@ app.get('/example', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Forms server listening on port ${port}`)
-  })
+})
