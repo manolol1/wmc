@@ -3,7 +3,6 @@
 const express = require('express')
 const path = require('path');
 const mariadb = require('mariadb');
-const { log } = require('console');
 
 const app = express();
 
@@ -85,6 +84,33 @@ app.post('/submit-order', async (req, res) => {
         console.error(err);
         res.status(500).json({ success: false, error: err });
     }
+});
+
+// handle GET requests for getting all orders
+app.get('/orders', async (req, res) => {
+    const conn = await pool.getConnection();
+
+    // query to get all orders
+    const orders = await conn.query("SELECT * FROM orders");
+    conn.release();
+
+    res.status(200).json(orders);
+});
+
+// handle GET requests for getting a specific order
+app.get('/orders?/:orderId', async (req, res) => {
+    const conn = await pool.getConnection();
+
+    // query to get all orders
+    const order = await conn.query("SELECT * FROM orders WHERE order_id = ?", [req.params.orderId]);
+    conn.release();
+
+    if (order.length === 0) {
+        res.status(404).json({ success: false, error: "Order not found" });
+        return;
+    }
+
+    res.status(200).json(order);
 });
 
 app.get('/example', (req, res) => {
