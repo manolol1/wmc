@@ -54,8 +54,9 @@ app.post('/json', (req, res) => {
 app.post('/submit-order', async (req, res) => {
     const formData = req.body;
 
+    let conn;
     try {
-        const conn = await pool.getConnection();
+        conn = await pool.getConnection();
 
         // query to get the car_id based on the model_name
         const carResult = await conn.query("SELECT car_id FROM cars WHERE model_name = ?", [formData.model]);
@@ -78,39 +79,56 @@ app.post('/submit-order', async (req, res) => {
         // get orderId from insert result
         const orderId = insertResult.insertId.toString();
 
-        conn.release();
         res.status(200).json({ success: true, orderId, formData });
     } catch (err) {
         console.error(err);
         res.status(500).json({ success: false, error: err });
+    } finally {
+        if (conn) conn.release();
     }
 });
 
 // handle GET requests for getting all orders
 app.get('/orders', async (req, res) => {
-    const conn = await pool.getConnection();
+    let conn;
 
-    // query to get all orders
-    const orders = await conn.query("SELECT * FROM orders");
-    conn.release();
+    try {
+        conn = await pool.getConnection();
 
-    res.status(200).json(orders);
+        // query to get all orders
+        const orders = await conn.query("SELECT * FROM orders");
+
+        res.status(200).json(orders);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, error: err });
+    } finally {
+        if (conn) conn.release();
+    }
 });
 
 // handle GET requests for getting a specific order
 app.get('/orders?/:orderId', async (req, res) => {
-    const conn = await pool.getConnection();
+    let conn;
 
-    // query to get all orders
-    const order = await conn.query("SELECT * FROM orders WHERE order_id = ?", [req.params.orderId]);
-    conn.release();
+    try {
+        conn = await pool.getConnection();
 
-    if (order.length === 0) {
-        res.status(404).json({ success: false, error: "Order not found" });
-        return;
+        // query to get all orders
+        const order = await conn.query("SELECT * FROM orders WHERE order_id = ?", [req.params.orderId]);
+
+        if (order.length === 0) {
+            res.status(404).json({ success: false, error: "Order not found" });
+            return;
+        }
+
+        res.status(200).json(order);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, error: err });
+    } finally {
+        if (conn) conn.release();
     }
-
-    res.status(200).json(order);
 });
 
 app.get('/example', (req, res) => {
@@ -118,5 +136,5 @@ app.get('/example', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Forms server listening on port ${port}`)
-})
+    console.log(`Forms server listening on port ${port}`);
+});
