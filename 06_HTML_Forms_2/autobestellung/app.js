@@ -1,5 +1,7 @@
 // Testserver: https://wmc-forms.manolol.xyz/
 
+const port = 80;
+
 const express = require('express')
 const path = require('path');
 const mariadb = require('mariadb');
@@ -26,8 +28,6 @@ async function testConnection() {
     }
 }
 setTimeout(testConnection, 1000);
-
-const port = 80;
 
 // Middleware to parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));
@@ -114,7 +114,7 @@ app.get('/cars', async (req, res) => {
     try {
         conn = await pool.getConnection();
 
-        // query to get all orders
+        // query to get all cars
         const orders = await conn.query("SELECT * FROM cars");
 
         res.status(200).json(orders);
@@ -133,7 +133,7 @@ app.get('/orders?/:orderId', async (req, res) => {
     try {
         conn = await pool.getConnection();
 
-        // query to get all orders
+        // query to get specified order
         const order = await conn.query("SELECT * FROM orders WHERE order_id = ?", [req.params.orderId]);
 
         if (order.length === 0) {
