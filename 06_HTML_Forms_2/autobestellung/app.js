@@ -107,6 +107,25 @@ app.get('/orders', async (req, res) => {
     }
 });
 
+// handle GET requests for getting a list of cars
+app.get('/cars', async (req, res) => {
+    let conn;
+
+    try {
+        conn = await pool.getConnection();
+
+        // query to get all orders
+        const orders = await conn.query("SELECT * FROM cars");
+
+        res.status(200).json(orders);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, error: err });
+    } finally {
+        if (conn) conn.release();
+    }
+});
+
 // handle GET requests for getting a specific order
 app.get('/orders?/:orderId', async (req, res) => {
     let conn;
