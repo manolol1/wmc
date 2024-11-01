@@ -25,7 +25,7 @@ async function testConnection() {
         console.error("Error connecting to database: ", err);
     }
 }
-testConnection();
+setTimeout(testConnection, 1000);
 
 const port = 80;
 
