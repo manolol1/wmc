@@ -1,0 +1,50 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#top {
+    text-align: center;
+    background-color: black
+}
+
+#title {
+    background-color: #FFFFFF;
+    color: black;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#subtitle {
+    text-align: right;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.spaceHighlight {
+    color: grey;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+}
+
+.highlight {
+    background-color: #FFFF00;
+    color: black;
+    font-size: 18px;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+.justifiedText {
+    text-align:justify
+}
+
+.verticalCenter {
+    vertical-align: middle;
+}
+
+.colorNameRed {
+    color:#C00418; font-weight:bold;
+}
