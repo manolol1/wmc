@@ -84,3 +84,7 @@ h1 {
 .right {
     text-align: right;
 }
+
+a:hover {
+    color: green;
+}
