@@ -45,6 +45,42 @@ h1 {
     vertical-align: middle;
 }
 
+.horizontalCenter {
+    text-align: center;
+}
+
 .colorNameRed {
     color:#C00418; font-weight:bold;
+}
+
+.colorNameOrange {
+    color: #F08B25; font-weight:bold;
+}
+
+.colorNameYellow {
+    color: #ECC24E; font-weight:bold;
+}
+
+.colorNameGreen {
+    color: #96B741; font-weight:bold;
+}
+
+.colorNameBlue {
+    color: #57A1D3; font-weight:bold;
+}
+
+.colorNamePurple {
+    color: #9E76AE; font-weight:bold;
+}
+
+.colorNameBlack {
+    color: #000000; font-weight:bold;
+}
+
+.source {
+    color: rgb(255,0,118);
+}
+
+.right {
+    text-align: right;
 }
