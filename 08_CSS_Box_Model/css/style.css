@@ -1,0 +1,21 @@
+:root {
+    --main-color: rgb(124,202,98);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.headline {
+    width: 10em;
+    border: 0.1em dotted var(--main-color);
+    border-radius: 16px;
+    color: var(--main-color);
+    padding: 0.5em;
+
+    /* Erklärung em: größe von einem 'M', relativ zur font-size*/
+}
+
+.menu button {
+    border: 2px solid #7cca62;
+}
