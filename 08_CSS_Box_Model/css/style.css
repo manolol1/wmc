@@ -17,5 +17,45 @@ body {
 }
 
 .menu button {
-    border: 2px solid #7cca62;
+    border: 2px solid var(--main-color);
+    font-size: 16px;
+    padding: 15px 32px;
+    background-color: white;
+}
+
+.menu button:hover {
+    background-color: var(--main-color);
+}
+
+.text-box-1 {
+    margin: 10px 50px 30px 80px;
+    width: 450px;
+    border: 2px solid grey;
+}
+
+.text-box-2 {
+    padding: 10px 50px 30px 80px;
+    width: 450px;
+    border: 2px solid grey;
+}
+
+.login-button {
+    margin-top: 50px;
+    border: 2px solid rgb(18, 164, 255);
+    font-size: 18px;
+    width: 250px;
+    height: 60px;
+    font-weight: bold;
+    background-color: #4285F4;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 12px;
+}
+
+.login-button img {
+    width: 40px;
+    margin-right: 6px;
+    vertical-align: middle;
+    background-color: white;
+    border-radius: 6px;
 }
