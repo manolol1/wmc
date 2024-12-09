@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    border: 2px dotted grey;
+    padding: 10px;
+}
+
+.item {
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: rgb(136, 211, 86);
+    margin: 10px;
+    padding: 20px;
+    width: 100px;
+    text-align: center;
+}
+
+#style-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#style-buttons button {
+    margin: 5px;
+}
