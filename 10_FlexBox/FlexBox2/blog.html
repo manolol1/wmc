@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - My Backpacker's Story</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1>My Backpacker's Story</h1>
+        <h2>Endlich kann der Alltag einpacken.</h2>
+    </header>
+
+    <nav id="navbar">
+        <a href="index.html">Start</a>
+        <a href="blog.html" style="background-color: rgb(59, 59, 59);">Reiseblog</a>
+        <a href="images.html">Bilder</a>
+        <a href="contact.html">Kontakt</a>
+    </nav>
+
+    <main id="blog-main">
+        <section id="welcome">
+            <h2>Willkommen auf meinem Blog!</h2>
+            <p>Hier können Sie meine neusten Blogeinträge lesen.</p>
+        </section>
+
+        <section id="articles">
+            <div w3-include-html="articles/02102018-angekommen-in-new-york.html"></div>
+            <div w3-include-html="articles/05072018-erste-eindruecke-von-tokyo.html"></div>
+            <div w3-include-html="articles/08072018-strandurlaub-in-okinawa.html"></div>
+        </section>
+    </main>
+
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+    <script>
+        // Check if the page is loaded inside an iframe
+        if (window.self === window.top) {
+            // Not in an iframe, show header and navbar
+            document.getElementById('header').setAttribute('style', 'display: block;');
+            document.getElementById('welcome').setAttribute('style', 'display: block;');
+            document.getElementById('navbar').setAttribute('style', 'display: flex;');
+        }
+    </script>
+
+
+    <script>
+        // https://www.w3schools.com/howto/howto_html_include.asp
+        function includeHTML(callback) {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    /* Make an HTTP request using the attribute value as the file name: */
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                            /* Remove the attribute, and call this function once more: */
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML(callback);
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /* Exit the function: */
+                    return;
+                }
+            }
+            callback();
+        }
+
+        // hacky solution to fix the image links that were broken by includeHTML()
+        function fixImageLinks() {
+            let images = document.getElementsByTagName('img');
+
+            for (let i = 0; i < images.length; i++) {
+                images[i].setAttribute('src', images[i].getAttribute('src').replace('../', './'));
+                console.log(images[i].getAttribute('src'));
+            }
+
+            document.getElementsByTagName('header')[0].style.backgroundImage = 'url(./images/countryside.jpg)';
+
+            console.log('Image links fixed.');
+        }
+
+        includeHTML(fixImageLinks); // includeHTML and then fixImageLinks
+    </script>
+
+</body>
+
+</html>
