@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Backpacker's Story</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://kit.fontawesome.com/6994670803.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header id="header">
+        <h1>My Backpacker's Story</h1>
+        <h2>Endlich kann der Alltag einpacken.</h2>
+    </header>
+
+    <nav id="navbar">
+        <a href="index.html">Start</a>
+        <a href="blog.html">Reiseblog</a>
+        <a href="images.html">Bilder</a>
+        <a href="contact.html" style="background-color: rgb(59, 59, 59);">Kontakt</a>
+    </nav>
+
+    <main id="contact-main">
+        <section id="info">
+            <h1>Kontakt aufnehmen</h1>
+            <p>Ich freue mich über Ihre Nachrichten und Feedback. Kontaktieren Sie mich gerne über das Kontaktformular
+                oder per E-Mail an <a href="mailto:mail@mybackpackersstory.net">mail@mybackpackersstory.net</a>.</p>
+        </section>
+
+        <section id="contact-form">
+            <h2>Kontaktformular</h2>
+            <form action="https://wmc-forms.manolol.xyz/json" target="_blank">
+                <table>
+                    <tr>
+                        <td><label for="name">Name:</label></td>
+                        <td><input type="text" id="name" name="name" required></td>
+                    <tr>
+                    <tr>
+                        <td><label for="email">E-Mail:</label></td>
+                        <td><input type="email" id="email" name="email" required></td>
+                    <tr>
+                    <tr>
+                        <td><label for="message">Nachricht:&nbsp;</label></td>
+                        <td><textarea id="message" name="message" required rows="4" cols="40"></textarea></td>
+                    <tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Absenden"></td>
+                    <tr>
+                </table>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Check if the page is loaded inside an iframe
+        if (window.self === window.top) {
+            // Not in an iframe, show header and navbar
+            document.getElementById('header').setAttribute('style', 'display: block;');
+            document.getElementById('navbar').setAttribute('style', 'display: flex;');
+        }
+    </script>
+</body>
+
+</html>
