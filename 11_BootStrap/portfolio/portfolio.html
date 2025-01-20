@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Mein Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Über mich</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projekte</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero-Bereich -->
+  <section id="home" class="bg-primary text-white text-center py-5">
+    <div class="container">
+      <h1>Willkommen auf meiner Portfolio-Seite!</h1>
+      <p class="lead">Ich bin ein HTL-Schüler mit großem Interesse an vielen Bereichen der Informatik.</p>
+      <a href="#about" class="btn btn-light btn-lg">Mehr erfahren</a>
+    </div>
+  </section>
+
+  <!-- Über mich -->
+  <section id="about" class="py-5">
+    <div class="container text-center">
+      <h2>Über mich</h2>
+      <p class="lead">Ich bin ein HTL-Schüler, der sich u.A. mit Softwareentwicklung, Mikrocontrollern und Betriebssystemen wie Linux beschäftigt. </p>
+      <img src="./img/girl_02.png" width="150" height="150" alt="Profilbild" class="rounded-circle mt-3">
+    </div>
+  </section>
+
+  <!-- Projekte -->
+  <section id="projects" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center">Meine Projekte</h2>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="./img/pexels-pixabay-39284.jpg" class="card-img-top" alt="Projekt 1">
+            <div class="card-body">
+              <h5 class="card-title">Projekt 1</h5>
+              <p class="card-text">Beschreibung des Projekts 1.</p>
+              <a href="#" class="btn btn-primary">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="./img/pexels-cottonbro-6153354.jpg" class="card-img-top" alt="Projekt 2">
+            <div class="card-body">
+              <h5 class="card-title">Projekt 2</h5>
+              <p class="card-text">Beschreibung des Projekts 2.</p>
+              <a href="#" class="btn btn-primary">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="./img/pexels-markusspiske-1921326.jpg" class="card-img-top" alt="Projekt 3">
+            <div class="card-body">
+              <h5 class="card-title">Projekt 3</h5>
+              <p class="card-text">Beschreibung des Projekts 3.</p>
+              <a href="#" class="btn btn-primary">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontaktformular -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="text-center">Kontakt</h2>
+      <form class="mt-4">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Ihr Name">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">E-Mail</label>
+          <input type="email" class="form-control" id="email" placeholder="Ihre E-Mail-Adresse">
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Nachricht</label>
+          <textarea class="form-control" id="message" rows="4" placeholder="Ihre Nachricht"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Senden</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
