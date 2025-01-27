@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <form onsubmit="event.preventDefault();">
+        <label for="original-text">Original Text:</label><br><br>
+        <textarea name="original-text" id="original-text" rows="15" cols="80"></textarea>
+        <br>
+        <br>
+
+        <button id="analyze-btn">Analyze</button>
+        <button id="remove-blanks-btn">Remove Blanks</button>
+        <br>
+        <br>
+
+        <input type="text" name="query" id="query">
+        <label for="replace">replace by:</label>
+        <input type="text" name="replace" id="replace">
+        <button id="replace-btn">Replace</button>
+        <br>
+        <br>
+
+        <div id="result"></div>
+    </form>
+</body>
+</html>
