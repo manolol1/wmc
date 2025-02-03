@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta author="Mario Ebenhofer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+    <h1>Array Manipulation Tool</h1>
+    <form id="manipulation-form">
+        <div>
+            <button id="init-btn">Array initialisieren</button>
+        </div>
+
+        <div>
+            <label for="element-input">Neues Element: </label>
+            <input type="text" id="element-input" placeholder="Element hinzufügen"><br>
+            <button id="add-first-btn">Element am Beginn einfügen</button>
+            <button id="add-last-btn">Element am Ende einfügen</button>
+        </div>
+
+        <div>
+            <button id="remove-first-btn">Erstes Element entfernen</button>
+            <button id="remove-last-btn">Letztes Element entfernen</button>
+        </div>
+
+        <div>
+            <label for="from-input">Von: </label>
+            <input type="number" name="from" id="from-input">
+
+            <label for="to-input">Bis: </label>
+            <input type="number" name="from" id="to-input">
+
+            <button id="slice-btn">Teilarray erstellen (Kopie)</button>
+        </div>
+
+        <div>
+            <label for="position-input">Position: </label>
+            <input type="number" name="position" id="position-input">
+
+            <button id="insert-btn">Einfügen</button>
+            <button id="insert-overwrite-btn">Einfügen (Überschreiben)</button>
+        </div>
+
+        <div>
+            <button id="sort-btn">Sortieren</button>
+        </div>
+
+        <div id="array-output">Aktuelles Array: []</div>
+        <div id="slice-output">Teilarray: []</div>
+    </form>
+</body>
+</html>
