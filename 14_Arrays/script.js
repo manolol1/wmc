@@ -1,12 +1,11 @@
 const DEFAULT_ARRAY = "Apfel,Birne,Banane,Orange,Mango,Kirsche,Erdbeere,Ananas,Pfirsich,Wassermelone".split(",")
 
-let arrayOutput = document.getElementById("array-output");
-let sliceOutput = document.getElementById("slice-output");
-let elementInput = document.getElementById("element-input");
-let fromInput = document.getElementById("from-input");
-let toInput = document.getElementById("to-input");
-let positionInput = document.getElementById("position-input");
-let sortBtn = document.getElementById("sort-btn");
+const arrayOutput = document.getElementById("array-output");
+const sliceOutput = document.getElementById("slice-output");
+const elementInput = document.getElementById("element-input");
+const fromInput = document.getElementById("from-input");
+const toInput = document.getElementById("to-input");
+const positionInput = document.getElementById("position-input");
 let array = [];
 
 init();
@@ -41,7 +40,7 @@ function init() {
         let from = fromInput.value;
         let to = toInput.value;
 
-        if (from < 0 || to >= array.length) {
+        if (from < 0 || to >= array.length || from >= to) {
             alert("Ungültiger Array-Bereich!");
         } else {
             sliceOutput.innerText = array.slice(from, to);
@@ -54,6 +53,10 @@ function init() {
 
     document.getElementById("insert-overwrite-btn").addEventListener("click", () => {
         array[positionInput.value] = elementInput.value;
+    });
+
+    document.getElementById("sort-btn").addEventListener("click", () => {
+        array.sort();
     });
     
     // update array output on every click
