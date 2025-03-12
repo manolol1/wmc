@@ -37,6 +37,14 @@ app.post('/register', async (req, res) => {
     res.status(200).redirect("messages/usercreated.html");
 })
 
+app.get('/login', (req, res) => {
+    res.redirect('login.html');
+})
+
+app.post('/login', async (req, res) => {
+    
+})
+
 app.listen(port, () => {
   console.log(`CookieClicker listening on port ${port}`)
 })
