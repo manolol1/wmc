@@ -42,7 +42,27 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/login', async (req, res) => {
-    
+    try {
+        if (!await db.userExists(req.body.username)) {
+            res.status(401).redirect("messages/loginfailed.html");
+            return;
+        }
+
+        const passwordHash = await db.getPasswordHash(req.body.username);
+
+        if (await bcrypt.compare(req.body.password, passwordHash)) {
+            res.status(200).send(`Logged in as ${req.body.username}`);
+        } else {
+            res.status(401).redirect("messages/loginfailed.html");
+            return;
+        }
+        
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error while logging in.");
+        return;
+    }
 })
 
 app.listen(port, () => {

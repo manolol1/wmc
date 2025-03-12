@@ -8,7 +8,7 @@ async function createUser(name, passwordHash) {
     try {
         conn = await pool.getConnection();
 
-        const res = await conn.query('INSERT INTO users (name, password) VALUES (?, ?)', [name, passwordHash]);
+        const res = await conn.query('INSERT INTO users (name, password, cookies) VALUES (?, ?, 0)', [name, passwordHash]);
 
     } catch (err) {
         throw (err)
@@ -34,4 +34,22 @@ async function userExists(name) {
     }
 }
 
-module.exports = { createUser, userExists }
+async function getPasswordHash(name) {
+    let conn;
+
+    try {
+        conn = await pool.getConnection();
+
+        const res = await conn.query('SELECT password FROM users WHERE name=?', [name]);
+
+
+        return res[0].password;
+
+    } catch (err) {
+        throw (err)
+    } finally {
+        if (conn) conn.release();
+    }
+}
+
+module.exports = { createUser, userExists, getPasswordHash }
