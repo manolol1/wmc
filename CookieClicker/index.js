@@ -19,13 +19,22 @@ app.get('/register', (req, res) => {
 })
 
 app.post('/register', async (req, res) => {
-    let password = await bcrypt.hash(req.body.password,10);
+    let password = await bcrypt.hash(req.body.password, 10);
 
     try {
+        if (await db.userExists(req.body.username)) {
+            res.status(409).redirect("messages/userexists.html");
+            return;
+        }
+
         await db.createUser(req.body.username, password);
     } catch (err) {
-        res.status(500).send("Error while creating user")
+        console.log(err);
+        res.status(500).send("Error while creating user");
+        return;
     }
+
+    res.status(200).redirect("messages/usercreated.html");
 })
 
 app.listen(port, () => {

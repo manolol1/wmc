@@ -1,14 +1,17 @@
 const mariadb = require('mariadb');
 
-const pool = mariadb.createPool({host: '127.0.0.1', user: 'root', connectionLimit: 5});
+const pool = mariadb.createPool({host: '127.0.0.1', user: 'admin', password: 'password', database: 'cookieclicker', connectionLimit: 5});
 
 async function createUser(name, passwordHash) {
     let conn;
 
     try {
         conn = await pool.getConnection();
-    } catch (e) {
-        throw (e)
+
+        const res = await conn.query('INSERT INTO users (name, password) VALUES (?, ?)', [name, passwordHash]);
+
+    } catch (err) {
+        throw (err)
     } finally {
         if (conn) conn.release();
     }
@@ -20,13 +23,15 @@ async function userExists(name) {
     try {
         conn = await pool.getConnection();
 
-        const res = conn.query('SELECT COUNT(username) FROM users WHERE username=?')
+        const res = await conn.query('SELECT COUNT(id) AS count FROM users WHERE name=?', [name]);
 
-    } catch (e) {
-        throw (e)
+        return Number(res[0].count) != 0;
+
+    } catch (err) {
+        throw (err)
     } finally {
         if (conn) conn.release();
     }
 }
 
-module.exports = { createUser }
+module.exports = { createUser, userExists }
