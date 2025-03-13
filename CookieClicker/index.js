@@ -1,17 +1,34 @@
 const express = require('express');
 const db = require('./db.js');
 const bcrypt = require('bcrypt');
+const dotenv = require('dotenv');
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const loginMiddleware = require('./middlewares/login-middleware.js');
+const path = require('path')
+
+dotenv.config();
 
 const app = express();
 const port = 80;
 
 app.use(express.static('static'));
 app.use(express.json());
+app.use(bodyParser.json())
 app.use(express.urlencoded());
+app.use(cookieParser());
 
+function generateJWT(username) {
+    return jwt.sign(username, process.env.TOKEN_SECRET, {expiresIn: '2d'});
+}
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+    res.redirect('/game');
+})
+
+app.get('/game', loginMiddleware.authenticate, (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, './game.html'));
 })
 
 app.get('/register', (req, res) => {
@@ -44,16 +61,16 @@ app.get('/login', (req, res) => {
 app.post('/login', async (req, res) => {
     try {
         if (!await db.userExists(req.body.username)) {
-            res.status(401).redirect("messages/loginfailed.html");
+            res.status(404).send("invalid username");
             return;
         }
 
         const passwordHash = await db.getPasswordHash(req.body.username);
 
         if (await bcrypt.compare(req.body.password, passwordHash)) {
-            res.status(200).send(`Logged in as ${req.body.username}`);
+            res.status(200).send(generateJWT({username: req.body.username}))
         } else {
-            res.status(401).redirect("messages/loginfailed.html");
+            res.status(401).send("invalid password");
             return;
         }
         
@@ -63,6 +80,19 @@ app.post('/login', async (req, res) => {
         res.status(500).send("Error while logging in.");
         return;
     }
+})
+
+app.get('/getcookies', loginMiddleware.authenticate, async (req, res) => {
+    const cookies = await db.getCookies(req.username)
+    console.log(cookies)
+
+    res.status(200).send(String(cookies));
+})
+
+app.post('/setcookies', loginMiddleware.authenticate, async (req, res) => {
+    await db.setCookies(req.username, req.body.cookies);
+
+    res.status(200).send('ok')
 })
 
 app.listen(port, () => {

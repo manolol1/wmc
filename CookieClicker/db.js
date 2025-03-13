@@ -1,6 +1,9 @@
 const mariadb = require('mariadb');
+const dotenv = require('dotenv');
 
-const pool = mariadb.createPool({host: '127.0.0.1', user: 'admin', password: 'password', database: 'cookieclicker', connectionLimit: 5});
+dotenv.config()
+
+const pool = mariadb.createPool({host: '127.0.0.1', user: process.env.DB_USER, password: process.env.DB_PASSWORD, database: 'cookieclicker', connectionLimit: 5});
 
 async function createUser(name, passwordHash) {
     let conn;
@@ -52,4 +55,38 @@ async function getPasswordHash(name) {
     }
 }
 
-module.exports = { createUser, userExists, getPasswordHash }
+async function getCookies(name) {
+    let conn;
+
+    try {
+        conn = await pool.getConnection();
+
+        const res = await conn.query('SELECT cookies FROM users WHERE name=?', [name]);
+
+        console.log(res[0])
+
+        return res[0].cookies;
+
+    } catch (err) {
+        throw (err)
+    } finally {
+        if (conn) conn.release();
+    }
+}
+
+async function setCookies(name, cookies) {
+    let conn;
+
+    try {
+        conn = await pool.getConnection();
+
+        const res = await conn.query('UPDATE users SET cookies=? WHERE name=?', [cookies, name])
+
+    } catch (err) {
+        throw (err)
+    } finally {
+        if (conn) conn.release();
+    }
+}
+
+module.exports = { createUser, userExists, getPasswordHash, getCookies, setCookies }

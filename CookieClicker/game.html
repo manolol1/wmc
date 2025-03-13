@@ -5,10 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Clicker</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/gamestyle.css">
 </head>
 <body>
-    <div id="game-area">
+    <h1 id="loading-notice">Loading...</h1>
+    <div id="game-area" style="display: none">
         <img src="/img/cookie.png" alt="cookie" width="200px" id="cookie">
+        <p>Cookies: <span id="cookies-text">?</span></p>
     </div>
+
+    <script>
+        const cookieText = document.getElementById('cookies-text');
+        const cookieButton = document.getElementById('cookie');
+
+        initializeGame()
+
+        async function initializeGame() {
+            let cookies = await getCookies();
+            let oldCookies = cookies;
+            console.log("loaded");
+
+            document.getElementById('loading-notice').style.display = 'none';
+            document.getElementById('game-area').style.display = 'flex';
+            
+            updateCookieText(cookies)
+            
+            cookieButton.addEventListener('click', () => {
+                cookies++;
+                updateCookieText(cookies);
+            });
+
+            setInterval(() => {
+                if (cookies > oldCookies) updateCookies(cookies);
+                oldCookies = cookies;
+            }, 1000)
+        }
+
+        function updateCookieText(cookies) {
+            cookieText.innerText = cookies
+        }
+
+        async function updateCookies(cookies) {
+            response = await fetch("/setcookies", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({'cookies': cookies})
+            });
+
+            const responseText = await response.text();
+
+            if (response.status == 200) {
+                console.log("cookies updated to: " + cookies);
+            } else {
+                alert('An unknown error occured while updating your cookies. The website will reload now.');
+                window.location.reload();
+                return;
+            }
+        }
+
+        async function getCookies() {
+            console.log("loading cookies")
+            response = await fetch("/getcookies", {
+                method: 'GET'
+            });
+
+            const responseText = await response.text();
+
+            if (response.status == 200) {
+                console.log("cookies loaded: " + responseText);
+                return Number(responseText);
+            } else {
+                alert('An unknown error occured while loading your cookies. The website will reload now.');
+                window.location.reload();
+                return;
+            }
+        }
+    </script>
 </body>
 </html>

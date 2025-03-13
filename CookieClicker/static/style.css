@@ -1,24 +1,4 @@
-html, body {
-    height: 100%;
-}
-
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: burlywood;
-}
-
-#game-area {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
-    height: 400px;
-    background-color: rgb(255, 208, 150);
-    border-radius: 8px;
-}
-
-#cookie:hover {
-    width: 202px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 167, 53);
 }
