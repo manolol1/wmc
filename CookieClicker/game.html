@@ -13,10 +13,13 @@
         <img src="/img/cookie.png" alt="cookie" width="200px" id="cookie">
         <p>Cookies: <span id="cookies-text">?</span></p>
     </div>
+    
+    <button id="logout-btn" style="margin-top: 20px;">Logout</button>
 
     <script>
         const cookieText = document.getElementById('cookies-text');
         const cookieButton = document.getElementById('cookie');
+        const logoutButton = document.getElementById('logout-btn');
 
         initializeGame()
 
@@ -33,6 +36,12 @@
             cookieButton.addEventListener('click', () => {
                 cookies++;
                 updateCookieText(cookies);
+            });
+
+            logoutButton.addEventListener('click', () => {
+                updateCookieText(cookies);
+                document.cookie = `token=none`;
+                window.location.href = "/login";
             });
 
             setInterval(() => {
