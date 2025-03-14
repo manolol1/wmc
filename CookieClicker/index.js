@@ -83,14 +83,23 @@ app.post('/login', async (req, res) => {
 })
 
 app.get('/getcookies', loginMiddleware.authenticate, async (req, res) => {
-    const cookies = await db.getCookies(req.username)
-    console.log(cookies)
+    try {
+        const cookies = await db.getCookies(req.username)
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error while getting cookies.");
+    }
 
     res.status(200).send(String(cookies));
 })
 
 app.post('/setcookies', loginMiddleware.authenticate, async (req, res) => {
-    await db.setCookies(req.username, req.body.cookies);
+    try {
+        await db.setCookies(req.username, req.body.cookies);
+    } catch(err) {
+        console.log(err);
+        res.status(500).send("Error while setting cookies.");
+    }
 
     res.status(200).send('ok')
 })
