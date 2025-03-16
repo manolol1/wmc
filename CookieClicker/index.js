@@ -83,8 +83,9 @@ app.post('/login', async (req, res) => {
 })
 
 app.get('/getcookies', loginMiddleware.authenticate, async (req, res) => {
+    let cookies;
     try {
-        const cookies = await db.getCookies(req.username)
+        cookies = await db.getCookies(req.username)
     } catch (err) {
         console.log(err);
         res.status(500).send("Error while getting cookies.");
