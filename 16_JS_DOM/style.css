@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.marked {
+    background-color: rgb(255, 92, 92);
+}
+
+.done {
+    background-color: rgb(139, 255, 123);
+}
+
+.action-button:hover {
+    cursor: pointer;
+}

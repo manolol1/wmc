@@ -20,8 +20,6 @@ function handleOnStyleClicked() {
     items = myList.children;
 
     for (const item of items) {
-        //item.style.color = "red"
-
         item.addEventListener("click", handleOnEntryClicked);
     }
     
